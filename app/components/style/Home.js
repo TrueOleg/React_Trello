@@ -214,7 +214,7 @@ export const tasksList = {
   marginBottom: '5px',
   backgroundColor: 'rgb(226, 228, 230)',
   border: '0px',
-  borderRadius: '10px',
+  borderRadius: '3px',
   overflow: 'hidden',
 };
 

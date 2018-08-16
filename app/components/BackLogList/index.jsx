@@ -79,9 +79,10 @@ class BackLogList extends React.Component {
                                                             {...provided.draggableProps}
                                                             {...provided.dragHandleProps}
                                                         >
-                                                            <Task 
-                                                                task={item}
-                                                                boardId={this.props.boardId} />
+                                                        <Task 
+                                                            task={item}
+                                                            boardId={this.props.boardId} 
+                                                        />
                                                         </div>
                                                     )}
                                                 </Draggable>

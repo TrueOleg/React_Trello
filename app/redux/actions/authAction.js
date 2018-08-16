@@ -24,7 +24,7 @@ export const logInUser = (data) => {
                
                 dispatch(isLogin(res.data));
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
     };
 };
 
@@ -36,6 +36,6 @@ export const registrationUser = (data) => {
                 console.log('res', res);
                 dispatch(isLogin(res.data));
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
     };
 };

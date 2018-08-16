@@ -30,21 +30,21 @@ export const getTasks = (boardId, status) => {
                   dispatch(saveMyBackLogTasks(res.data.tasks));
                     
                 })
-                .catch(() => dispatch(loginHasErrored(true)));
+                .catch((err) => console.log(err));
                 break;
             case 'done': Api.get(`${Const.URL}/tasks/my?board_id=${boardId}&status=${status}`)
                 .then(res => {
                 dispatch(saveMyDoneTasks(res.data.tasks));
                     
                 })
-                .catch(() => dispatch(loginHasErrored(true))); 
+                .catch((err) => console.log(err));
                 break;
             case 'todo': Api.get(`${Const.URL}/tasks/my?board_id=${boardId}&status=${status}`)
                 .then(res => {
                 dispatch(saveMyToDoTasks(res.data.tasks));
                     
                 })
-                .catch(() => dispatch(loginHasErrored(true))); 
+                .catch((err) => console.log(err));
                 break;       
         }
         
@@ -67,7 +67,7 @@ export const writeTask = (data, status, boardId, position) => {
                 dispatch(getTasks(boardId, 'todo' ));
                   
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
             
         
                 
@@ -96,7 +96,7 @@ export const changeTask = (boardId, taskId, status, position) => {
               dispatch(saveMyToDoTasks(todoTasks));
 
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
             
         
                 
@@ -124,7 +124,7 @@ export const deleteTask = (taskId, boardId) => {
                 dispatch(saveMyDoneTasks(doneTasks));
                 dispatch(saveMyToDoTasks(todoTasks));
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
             
         
                 

@@ -31,7 +31,7 @@ export const getBoards = () => {
               dispatch(saveMyBoards(res.data.boards));
                 
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
     };
 };
 
@@ -46,7 +46,7 @@ export const getBoardId = (hash) => {
               dispatch(saveInvaitBoard(res.data.board));
                 
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
     };
 };
 
@@ -58,7 +58,7 @@ export const writeBoard = (data) => {
               dispatch(saveMyBoards(res.data.boards));
                 
             })
-            .catch(() => dispatch(loginHasErrored(true)));
+            .catch((err) => console.log(err));
     };
 };
 
@@ -70,10 +70,8 @@ export const createHashSecret = (boardId) => {
                 dispatch(saveSecret(res.data.secretHash));
 
             })
-            .catch(() => dispatch(loginHasErrored(true)));
-            
-        
-                
+            .catch((err) => console.log(err));
+                        
     };
 };
 
@@ -84,9 +82,7 @@ export const deleteBoard = (boardId) => {
             .then(res => {
                 dispatch(saveMyBoards(res.data.boards));
             })
-            .catch(() => dispatch(loginHasErrored(true)));
-            
-        
-                
+            .catch((err) => console.log(err));
+                      
     };
 };
