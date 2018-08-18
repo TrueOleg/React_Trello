@@ -14,6 +14,7 @@ export const input = {
     marginRight: '25%',
     borderRadius: '5px',
     backgroundColor: 'hsla(0,0%,100%,.3)',
+    paddingLeft: '3px',
     border: '0px',
     outline: 'none'
 };

@@ -51,6 +51,7 @@ class SignUpPage extends React.Component {
             name  = "regPass"
             label = "regPass"
             type  = "regPass"
+            autoComplete='off'
             value={this.state.credentials.regPass}
             onChange={this.onChange}
             />
