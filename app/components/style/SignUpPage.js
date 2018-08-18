@@ -10,6 +10,7 @@ export const form = {
 };
 
 export const input = {
+    width: '100%',
     marginRight: '25%',
     borderRadius: '5px',
     backgroundColor: 'hsla(0,0%,100%,.3)',

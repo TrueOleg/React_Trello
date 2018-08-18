@@ -11,6 +11,7 @@ export const formLogin = {
 };
 
 export const input = {
+    width: '100%',
     marginRight: '25%',
     borderRadius: '5px',
     backgroundColor: 'hsla(0,0%,100%,.3)',
@@ -33,6 +34,7 @@ export const btnLogin = {
 };
 
 export const link = {
+    width: '100%',
     border: '0px',
     borderRadius: '5px',
     backgroundColor: 'hsla(0,0%,100%,.3)',
@@ -40,6 +42,12 @@ export const link = {
     textDecoration: 'none',
     padding: '2px',
     fontSize: '13px'
+};
+
+export const linkCont = {
+    width: '46px',
+    display: 'inline-block'
+    
 };
 
 export const classicBody = {
