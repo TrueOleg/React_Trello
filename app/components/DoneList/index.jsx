@@ -100,9 +100,11 @@ class DoneList extends React.Component {
                 {(provided, snapshot) => (
                     <div ref={provided.innerRef} style={styles.tasksList}>
                         <div style={styles.h2}>Done</div>
+                        <div style={styles.scrollDiv}>
                         {tasks}
                         {form}
-                        {provided.placeholder}   
+                        {provided.placeholder} 
+                        </div>  
                     </div>
                 )}
             </Droppable>

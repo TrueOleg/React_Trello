@@ -114,6 +114,11 @@ export const btnDelTask = {
   
 };
 
+export const scrollDiv = {
+  overflowY: 'auto',
+  maxHeight: '750px'
+};
+
 export const btnCont = {
   display: 'flex',
   justifyContent: 'flex-start'

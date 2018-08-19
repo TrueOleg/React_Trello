@@ -93,9 +93,11 @@ class BackLogList extends React.Component {
                 {(provided, snapshot) => (
                 <div style={styles.tasksList} ref={provided.innerRef}>
                     <div style={styles.h2}>BackLog</div>
+                    <div style={styles.scrollDiv}>
                     {tasks} 
                     {form}
-                    {provided.placeholder}   
+                    {provided.placeholder} 
+                    </div>  
                 </div>
                 )}
             </Droppable>
