@@ -1,4 +1,5 @@
 import React from 'react';  
+import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux'; 
 import {
   BrowserRouter as Router,
@@ -23,6 +24,12 @@ class ListBoards extends React.Component {
     deleteBoardClick(event) {
         const boardId = event.target.id;
         this.props.deleteBoard(boardId);
+        const id = window.location.search.substr(4);
+        console.log('id', id);
+        console.log('boardId', boardId);
+        if (id === boardId) {
+            window.location="/";
+        }
     }
 
     render() {

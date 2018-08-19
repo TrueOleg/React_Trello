@@ -51,7 +51,7 @@ class NewBoardForm extends React.Component {
           placeholder="enter title"
           name="title"
           label="title"
-          autocomplete='off'
+          autoComplete='off'
           value={this.state.newBoard.title}
           onChange={this.onChange}
           />

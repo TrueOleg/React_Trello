@@ -68,20 +68,22 @@ class NewTaskForm extends React.Component {
         onChange={this.onChange}
         />
       <br />
-      <input
-        style={styles.btnAddTask}
-        type="submit"
-        className="btn btn-primary"
-        value="+Add Task"
-        onClick={this.addTask}
-        />
-      <input
-          style={styles.btnGenLink}
+      <div style={styles.btnCont}>
+        <input
+          style={styles.btnAddTask}
           type="submit"
           className="btn btn-primary"
-          value='✖'
-          onClick={this.hideList}
-          />    
+          value="+Add Task"
+          onClick={this.addTask}
+        />
+        <input
+            style={styles.btnGenLink}
+            type="submit"
+            className="btn btn-primary"
+            value='✖'
+            onClick={this.hideList}
+        /> 
+      </div>   
     </form>  
     )
       

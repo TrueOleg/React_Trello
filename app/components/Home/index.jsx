@@ -52,7 +52,13 @@ class Home extends React.Component {
 
     generateLink() {
         const id = String(window.location.search);
-        this.props.createHashSecret(id);
+        if (id) {
+            this.props.createHashSecret(id);
+        } else {
+            const link = document.getElementById('share');
+            link.value = `select the board`;
+        }
+        
         
     }
    

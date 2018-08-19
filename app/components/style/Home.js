@@ -51,6 +51,7 @@ export const btnLogOut = {
   marginRight: '5px',
   marginBottom: '5px',
   cursor: 'pointer',
+  whiteSpace: 'nowrap'
 };
 
 export const sharing = {
@@ -99,8 +100,13 @@ export const btnDelTask = {
   cursor: 'pointer',
   backgroundColor: 'rgba(255, 255, 255, 0.3)',
   height: '26px',
-  marginLeft: '92%',
+  marginLeft: '88%',
   
+};
+
+export const btnCont = {
+  display: 'flex',
+  justifyContent: 'flex-start'
 };
 
 export const btnDelBoard = {
@@ -128,7 +134,7 @@ export const btnAddBoard = {
   color: '#fff',
   cursor: 'pointer',
   backgroundColor: 'rgb(90, 172, 68)',
-  width: '89%',
+  width: '76%',
   fontSize: '16px',
   textAlign: 'start',
   marginBottom: '5px',
@@ -140,7 +146,7 @@ export const btnAddTask = {
   color: '#fff',
   cursor: 'pointer',
   backgroundColor: 'rgb(90, 172, 68)',
-  width: '89%',
+  width: '82%',
   fontSize: '16px',
   textAlign: 'start',
   marginBottom: '5px',
@@ -249,6 +255,6 @@ export const taskText = {
 
 
 export const linkCont = {
-  width: '82%',
+  width: '93%',
   display: 'inline-flex'
 };
