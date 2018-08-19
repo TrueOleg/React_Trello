@@ -77,7 +77,7 @@ class NewTaskForm extends React.Component {
           onClick={this.addTask}
         />
         <input
-            style={styles.btnGenLink}
+            style={styles.btnCancel}
             type="submit"
             className="btn btn-primary"
             value='✖'

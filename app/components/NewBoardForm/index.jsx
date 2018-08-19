@@ -64,7 +64,7 @@ class NewBoardForm extends React.Component {
           onClick={this.addBoard}
           />
         <input
-          style={styles.btnGenLink}
+          style={styles.btnCancel}
           type="submit"
           className="btn btn-primary"
           value='✖'

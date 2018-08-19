@@ -68,6 +68,7 @@ export const inputSharing = {
   height: '24px',
   marginBottom: '5px',
   width: '25%',
+  minWidth: '410px',
   paddingLeft: '5px',
   outline: 'none',
 };
@@ -94,12 +95,21 @@ export const btnGenLink = {
   outline: 'none',
 };
 
+export const btnCancel = {
+  borderRadius: '5px',
+  border: '0px',
+  cursor: 'pointer',
+  backgroundColor: 'rgb(226, 228, 230)',
+  color: 'black',
+  height: '21px',
+  outline: 'none',
+};
+
 export const btnDelTask = {
   borderRadius: '5px',
   border: '0px',
   cursor: 'pointer',
   backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  height: '26px',
   marginLeft: '88%',
   
 };
@@ -113,9 +123,10 @@ export const btnDelBoard = {
   borderRadius: '5px',
   border: '0px',
   cursor: 'pointer',
-  backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  height: '26px',
-  marginLeft: '5px',
+  backgroundColor: 'rgb(226, 228, 230)',
+  color: 'black',
+  height: '21px',
+  outline: 'none',
 };
 
 export const btnAdd = {
@@ -160,7 +171,8 @@ export const boardsCont = {
 };
 
 export const boardsList = {
-  width: '15%',
+  width: '19%',
+  minWidth: '130px',
   marginLeft: '1%',
   marginRight: '5%',
   marginBottom: '5px',
@@ -233,7 +245,10 @@ export const task = {
   paddingBottom: '1px',
   backgroundColor: 'rgb(255, 255, 255)',
   border: '0px',
-  borderRadius: '10px'
+  borderRadius: '3px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-end'
 };
 
 export const form = {
@@ -251,6 +266,9 @@ export const close = {
 export const taskText = {
   textAlign: 'left',
   paddingLeft: '10px',
+  width: '97%',
+  marginBottom: '5px',
+  marginTop: '5px',
 };
 
 
