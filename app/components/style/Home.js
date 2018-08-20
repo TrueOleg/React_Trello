@@ -116,7 +116,7 @@ export const btnDelTask = {
 
 export const scrollDiv = {
   overflowY: 'auto',
-  maxHeight: '750px'
+  maxHeight: '88%'
 };
 
 export const btnCont = {
@@ -169,7 +169,7 @@ export const btnAddTask = {
 };
 
 export const boardsCont = {
-  height: '91%',
+  height: '86%',
   width: '100%',
   display: 'flex',
   alignItems: 'flex-start'
@@ -209,10 +209,10 @@ export const linkBoard = {
 
 
 export const board = {
-  width: '75%',
+  width: '99%',
+  height: '99%',
   marginLeft: '1%',
   marginRight: '5%',
-  marginBottom: '5px',
   border: '0px',
   borderRadius: '10px'
 };
@@ -224,6 +224,7 @@ export const boardTitle = {
 
 export const boardTasksLists = {
   width: '100%',
+  height: '88%',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'start'
@@ -231,6 +232,7 @@ export const boardTasksLists = {
 
 export const tasksList = {
   width: '30%',
+  maxHeight: '99%',
   textAlign: 'center',
   marginLeft: '1%',
   marginRight: '1%',
@@ -238,7 +240,7 @@ export const tasksList = {
   backgroundColor: 'rgb(226, 228, 230)',
   border: '0px',
   borderRadius: '3px',
-  overflow: 'hidden',
+  overflow: 'auto',
 };
 
 export const task = {
