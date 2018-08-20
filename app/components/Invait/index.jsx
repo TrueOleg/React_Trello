@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -16,12 +17,15 @@ import Board from '../Board';
 
 
 class Invait extends React.Component {
+    static propTypes = {
+        getBoardId: PropTypes.func,
+        board: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
-        
-        this.state = {
-            
-            isOpen: false
+            this.state = {
+                isOpen: false
         };
         
         const token   = localStorage.getItem('token');
@@ -29,28 +33,20 @@ class Invait extends React.Component {
                 props.setToken({
                     token
                 });
-            }
-    }
+            };
+    };
 
     componentDidMount() {
        const hash = window.location.hash;
-       console.log('hash', hash);
-       this.props.getBoardId(hash);
-        
-    }
+       this.props.getBoardId(hash); 
+    };
 
-   
-
-    
-
-   
-    
     render () {
         let board;
          if (Object.keys(this.props.board).length !== 0) {
-            board = <Board board={this.props.board} />
+            board = <Board board={this.props.board} />;
         } else {
-            board = null
+            board = null;
         }
                     
         
@@ -62,7 +58,7 @@ class Invait extends React.Component {
              </React.Fragment>    
         );
     }
-}
+};
 
 
 const mapStateToProps = (state) => {
@@ -70,7 +66,7 @@ const mapStateToProps = (state) => {
         isAuthenticated: state.auth.user.isAuthenticated,
         board: state.invait.board
     };
-  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     setToken: (data) => dispatch(actions.isLogin(data)),

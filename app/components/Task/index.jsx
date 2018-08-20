@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux';  
 
@@ -7,11 +8,17 @@ import * as styles from '../style/Home';
 
 
 class Task extends React.Component {
+    static propTypes = {
+        deleteTask: PropTypes.func,
+        boardId: PropTypes.string,
+        task: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
         
         this.deleteTask = this.deleteTask.bind(this);
-    }
+    };
 
     deleteTask() {
         this.props.deleteTask(this.props.task.id, this.props.boardId);
@@ -36,7 +43,7 @@ class Task extends React.Component {
         
         
     }
-}
+};
 
 
 const mapStateToProps = (state) => ({

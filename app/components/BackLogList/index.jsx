@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
     BrowserRouter as Router,
     Route,
@@ -14,6 +15,13 @@ import Task from '../Task';
 
 
 class BackLogList extends React.Component {
+    static propTypes = {
+        showNewTaskForm: PropTypes.func,
+        backLogTasks: PropTypes.array,
+        hideForm: PropTypes.func,
+        boardId: PropTypes.string
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -49,7 +57,7 @@ class BackLogList extends React.Component {
     };
     
     render () {
-        
+        console.log('proptypes', this.props.boardId)
       const form =  this.state.isOpen 
                     ? <NewTaskForm 
                         hideForm={this.hideForm}
@@ -104,6 +112,8 @@ class BackLogList extends React.Component {
         );
     };
 };
+
+
 
 
 const mapStateToProps = (state) => {

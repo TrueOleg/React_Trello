@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -17,6 +18,13 @@ import Task from '../Task';
 
 
 class DoneList extends React.Component {
+    static propTypes = {
+        showNewTaskForm: PropTypes.func,
+        doneTasks: PropTypes.array,
+        hideForm: PropTypes.func,
+        boardId: PropTypes.string
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +34,7 @@ class DoneList extends React.Component {
         };
         this.showNewTaskForm = this.showNewTaskForm.bind(this);
         this.hideForm = this.hideForm.bind(this);
-    }
+    };
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
@@ -38,25 +46,19 @@ class DoneList extends React.Component {
                     lastPosition: lastPos
                 });
             }
-        }
-        
-    }
-    
-    componentDidMount() {
-        // this.props.getTasks(this.props.boardId, this.state.status);
-    }
+        }   
+    };
 
     hideForm() {
         this.setState({
         isOpen: false
         });
-    }
+    };
 
     showNewTaskForm(event) {
         event.preventDefault();
-        
         this.setState({ isOpen: !this.state.isOpen});
-    }
+    };
     
     
     render () {
@@ -118,7 +120,7 @@ const mapStateToProps = (state) => {
         isAuthenticated: state.auth.user.isAuthenticated,
         doneTasks: state.tasks.doneTasks
     };
-  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     getTasks: (boardId, status) => dispatch(tasksActions.getTasks(boardId, status)),    

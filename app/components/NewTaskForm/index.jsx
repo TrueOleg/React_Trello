@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../../redux/actions/tasksAction'; 
@@ -7,6 +8,14 @@ import close from '../../img/cross-script.png';
 
 
 class NewTaskForm extends React.Component {
+  static propTypes = {
+    addTask: PropTypes.func,
+    onChange: PropTypes.func,
+    hideList: PropTypes.func,
+    hideForm: PropTypes.func,
+    writeTask: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,18 +25,14 @@ class NewTaskForm extends React.Component {
     this.addTask = this.addTask.bind(this);
     this.onChange = this.onChange.bind(this);
     this.hideList = this.hideList.bind(this);
-  }
+  };
 
-  componentDidMount() {
-    
-  }
-  
   hideList(event) {
     
     event.preventDefault();
     this.setState({ newTask: {title: '', content: ''}});
     this.props.hideForm();
-  }
+  };
 
   onChange(event) {
     const field = event.target.name;
@@ -85,13 +90,11 @@ class NewTaskForm extends React.Component {
         /> 
       </div>   
     </form>  
-    )
+    );
       
   };
-}
-const mapStateToProps = (state) => {
-    
-  };
+};
+
 
 const mapDispatchToProps = (dispatch) => ({
   writeTask: (data, status, boardId, position) => dispatch(actions.writeTask(data, status, boardId, position))

@@ -1,4 +1,5 @@
-import React from 'react';   
+import React from 'react';  
+import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux'; 
 import { Redirect} from 'react-router'; 
 import { Link } from 'react-router-dom';
@@ -8,24 +9,29 @@ import * as actions from '../../redux/actions/authAction';
 
 
 class SignInPage extends React.Component {  
+  static propTypes = {
+    logInUser: PropTypes.func,
+    isAuthenticated: PropTypes.bool,
+  };
+
   constructor(props) {
     super(props);
     this.state = {credentials: {login: '', password: ''}};
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
-  }
+  };
 
   onChange(event) {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
     return this.setState({credentials: credentials});
-  }
+  };
 
   onSave(event) {
     event.preventDefault();
     this.props.logInUser(this.state.credentials);
-  }
+  };
 
   render() {
     if (this.props.isAuthenticated) {
@@ -68,7 +74,7 @@ class SignInPage extends React.Component {
       </div>   
     );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -80,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         logInUser: (data) => dispatch(actions.logInUser(data))
     };
-  };
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);

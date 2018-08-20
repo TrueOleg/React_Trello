@@ -36,7 +36,7 @@
     "axios": "^0.18.0",
     "cross-env": "5.1.6",
     "debounce-action": "^0.1.0",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.6.2",
     "react": "16.4.0",
     "react-beautiful-dnd": "^8.0.7",
     "react-dom": "16.4.0",

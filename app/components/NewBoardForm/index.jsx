@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../../redux/actions/boardsActions'; 
@@ -7,6 +8,14 @@ import close from '../../img/cross-script.png';
 
 
 class NewBoardForm extends React.Component {
+  static propTypes = {
+    addBoard: PropTypes.func,
+    onChange: PropTypes.func,
+    hideList: PropTypes.func,
+    hide: PropTypes.func,
+    writeBoard: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,32 +25,27 @@ class NewBoardForm extends React.Component {
     this.addBoard = this.addBoard.bind(this);
     this.onChange = this.onChange.bind(this);
     this.hideList = this.hideList.bind(this);
-  }
-
-  componentDidMount() {
-    
-   
-  }
+  };
 
   hideList(event) {
     event.preventDefault();
     this.setState({ newTask: {title: '', content: ''}});
     this.props.hideForm();
-  }
+  };
 
   onChange(event) {
     const field = event.target.name;
     const newBoard = this.state.newBoard;
     newBoard[field] = event.target.value;
     return this.setState({newBoard: newBoard});
-  }
+  };
 
   addBoard(event) {
     event.preventDefault();
     this.props.writeBoard(this.state.newBoard);
     this.setState({ newBoard: {title: ''}});
     this.props.hide(event);
-  }
+  };
 
   render() {
     return (

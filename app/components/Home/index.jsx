@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -15,11 +16,15 @@ import BoardsContainer from '../BoardsContainer';
 
 
 class Home extends React.Component {
+    static propTypes = {
+        generateLink: PropTypes.func,
+        isAuthenticated: PropTypes.bool,
+        secret: PropTypes.string
+    };
+
     constructor(props) {
         super(props);
-        
         this.state = {
-            
             isOpen: false
         };
         
@@ -32,23 +37,15 @@ class Home extends React.Component {
 
         this.generateLink = this.generateLink.bind(this);
 
-    }
+    };
 
     componentDidUpdate(prevProps) {
         if (prevProps.secret !== this.props.secret) {
             const secret = this.props.secret;
-            console.log('secret', secret)
             const link = document.getElementById('share');
             link.value = `http://localhost:8080/invait#${secret}`;
-        }
-    }
-
-    componentDidMount() {
-       
-        
-    }
-
-    
+        };
+    };
 
     generateLink() {
         const id = String(window.location.search);
@@ -57,19 +54,15 @@ class Home extends React.Component {
         } else {
             const link = document.getElementById('share');
             link.value = `select the board`;
-        }
-        
-        
-    }
+        };
+         
+    };
    
-
     logOut() {
         Token.clearToken();
         location.reload();
-    }
+    };
 
-   
-    
     render () {
         const token = localStorage.getItem('token');
 
@@ -77,8 +70,6 @@ class Home extends React.Component {
             return <Redirect to="/sign-in"/>;
         }
 
-        
-        
         return (
             <React.Fragment>
                 
@@ -94,8 +85,8 @@ class Home extends React.Component {
                
             </React.Fragment>    
         );
-    }
-}
+    };
+};
 
 
 const mapStateToProps = (state) => {
@@ -103,7 +94,7 @@ const mapStateToProps = (state) => {
         isAuthenticated: state.auth.user.isAuthenticated,
         secret: state.invait.secret
     };
-  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     setToken: (data) => dispatch(actions.isLogin(data)),

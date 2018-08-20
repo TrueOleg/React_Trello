@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
     BrowserRouter as Router,
     Route,
@@ -14,6 +15,14 @@ import ToDoList from '../ToDoList';
 import DoneList from '../DoneList';
 
 class Board extends React.Component {
+    static propTypes = {
+        getAllTasks: PropTypes.func,
+        changeTask: PropTypes.func,
+        getTasks: PropTypes.func,
+        board: PropTypes.object,
+        myTasks: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -26,23 +35,23 @@ class Board extends React.Component {
            
         };
         
-    }
+    };
 
     getAllTasks(boardId) {
         this.props.getTasks(boardId, 'backLog');
         this.props.getTasks(boardId, 'todo');
         this.props.getTasks(boardId, 'done');
-    }
+    };
 
     componentDidUpdate(prevProps) {
         if (prevProps.board !== this.props.board) {
             this.getAllTasks(this.props.board.id);
         }
-    }
+    };
 
     componentDidMount() {
         this.getAllTasks(this.props.board.id);
-    }
+    };
 
     onDragEnd = (result, index) => {
         const { draggableId, source, destination} = result;
@@ -108,8 +117,8 @@ class Board extends React.Component {
           </div>
       );
         
-    }
-}
+    };
+};
 
 
 const mapStateToProps = (state) => {
@@ -117,7 +126,7 @@ const mapStateToProps = (state) => {
         isAuthenticated: state.auth.user.isAuthenticated,
         myTasks: state.tasks
     };
-  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     getTasks: (boardId, status) => dispatch(tasksActions.getTasks(boardId, status)),

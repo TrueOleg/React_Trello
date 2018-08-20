@@ -1,4 +1,5 @@
 import React from 'react';   
+import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -14,12 +15,18 @@ import * as actions from '../../redux/actions/authAction';
 import * as boardsActions from '../../redux/actions/boardsActions';  
 import NewBoardForm from '../NewBoardForm';
 import ListBoards from '../ListBoards';
-import ViewBoards from '../ViewBoards';
 import Board from '../Board';
 import Invait from '../Invait';
 
 
 class BoardsContainer extends React.Component {
+    static propTypes = {
+        showNewBoardForm: PropTypes.func,
+        hideForm: PropTypes.func,
+        getBoards: PropTypes.func,
+        myBoards: PropTypes.array,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -52,7 +59,8 @@ class BoardsContainer extends React.Component {
         const form = this.state.isOpen 
                      ? <NewBoardForm  
                         hideForm={this.hideForm} 
-                        hide={this.showNewBoardForm}/> 
+                        hide={this.showNewBoardForm}
+                        /> 
                      : <button onClick={this.showNewBoardForm} style={styles.btnAdd}>+ Add Board</button>;
 
         if (this.props.myBoards === 0) {
