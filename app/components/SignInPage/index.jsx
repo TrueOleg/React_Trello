@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import * as styles from '../style/SignInPage';
 import * as actions from '../../redux/actions/authAction';
+import ErrorWindow from '../ErrorWindow';
 
 
 class SignInPage extends React.Component {  
@@ -16,9 +17,27 @@ class SignInPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {credentials: {login: '', password: ''}};
+    this.state = {
+      credentials: {login: '', password: ''},
+      errorMessage: ''  
+      };
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
+    this.hideError = this.hideError.bind(this);
+  };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.error !== this.props.error) {
+        console.log('HIerror', this.props.error.response.data);
+        return this.setState({errorMessage: this.props.error.response.data});
+        
+    };
+  };
+
+  hideError() {
+    this.setState({
+      errorMessage: ''
+    });
   };
 
   onChange(event) {
@@ -71,6 +90,7 @@ class SignInPage extends React.Component {
           <Link to="/sign-up" style={styles.link}>Sign-up</Link> 
           </div>
         </form>  
+        {this.state.errorMessage !== ''?<ErrorWindow message={this.state.errorMessage} hideError={this.hideError}/>:null}
       </div>   
     );
   }
@@ -78,7 +98,8 @@ class SignInPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-      isAuthenticated: state.auth.user.isAuthenticated
+      isAuthenticated: state.auth.user.isAuthenticated,
+      error: state.errors.error
   };
 };
 

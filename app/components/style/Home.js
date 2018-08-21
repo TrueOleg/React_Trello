@@ -105,6 +105,16 @@ export const btnCancel = {
   outline: 'none',
 };
 
+export const btnCancelErr = {
+  borderRadius: '5px',
+  border: '0px',
+  cursor: 'pointer',
+  backgroundColor: 'rgb(255, 255, 255)',
+  color: 'black',
+  height: '21px',
+  outline: 'none',
+};
+
 export const btnDelTask = {
   borderRadius: '5px',
   border: '0px',
@@ -256,6 +266,15 @@ export const task = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end'
+};
+
+export const errWindow = {
+  backgroundColor: 'rgb(255, 255, 255)',
+  border: '0px',
+  borderRadius: '3px',
+  position: 'absolute',
+  bottom: '50px',
+  padding: '5px'
 };
 
 export const form = {

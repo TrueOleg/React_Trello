@@ -16,6 +16,13 @@ export const isLogin = (data) => {
     };
 };  
 
+export const saveError = (err) => {
+    return {
+        type: Const.SAVE_ERROR,
+        err: err
+    };
+};  
+
 export const logInUser = (data) => {
     return (dispatch) => {
         
@@ -24,7 +31,7 @@ export const logInUser = (data) => {
                
                 dispatch(isLogin(res.data));
             })
-            .catch((err) => console.log(err));
+            .catch((err) => dispatch(saveError(err)));
     };
 };
 
