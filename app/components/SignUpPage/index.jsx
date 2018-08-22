@@ -29,7 +29,9 @@ class SignUpPage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.registrationUser(this.state.credentials);
+    if ((this.state.credentials.regLogin!=='')||(this.state.credentials.regPass!=='')||(this.state.credentials.regEmail!=='')) {
+      this.props.registrationUser(this.state.credentials);
+    } 
   };
 
   render() {

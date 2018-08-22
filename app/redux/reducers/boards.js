@@ -6,7 +6,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
     const { type, boards } = action;
-    console.log('boards', boards);
     switch (type) {
         
         case Const.SAVE_MY_BOARDS:

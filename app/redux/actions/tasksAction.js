@@ -25,21 +25,21 @@ export const saveMyToDoTasks = (tasks) => {
 export const getTasks = (boardId, status) => {
     return (dispatch) => {
         switch(status) {
-            case 'backLog': Api.get(`${Const.URL}/tasks/my?board_id=${boardId}&status=${status}`)
+            case 'backLog': Api.get(`${Const.URL}/tasks/?board_id=${boardId}&status=${status}`)
                 .then(res => {
                   dispatch(saveMyBackLogTasks(res.data.tasks));
                     
                 })
                 .catch((err) => console.log(err));
                 break;
-            case 'done': Api.get(`${Const.URL}/tasks/my?board_id=${boardId}&status=${status}`)
+            case 'done': Api.get(`${Const.URL}/tasks/?board_id=${boardId}&status=${status}`)
                 .then(res => {
                 dispatch(saveMyDoneTasks(res.data.tasks));
                     
                 })
                 .catch((err) => console.log(err));
                 break;
-            case 'todo': Api.get(`${Const.URL}/tasks/my?board_id=${boardId}&status=${status}`)
+            case 'todo': Api.get(`${Const.URL}/tasks/?board_id=${boardId}&status=${status}`)
                 .then(res => {
                 dispatch(saveMyToDoTasks(res.data.tasks));
                     
@@ -77,7 +77,7 @@ export const writeTask = (data, status, boardId, position) => {
 export const changeTask = (boardId, taskId, status, position) => {
     return (dispatch) => {
  
-        Api.put(`${Const.URL}/tasks/my`, {taskId, status, boardId, position})
+        Api.put(`${Const.URL}/tasks/${taskId}/board/${boardId}`, {taskId, status, boardId, position})
             .then(res => {
               const {backLogTasks, doneTasks, todoTasks} = res.data;
 
@@ -106,7 +106,7 @@ export const changeTask = (boardId, taskId, status, position) => {
 export const deleteTask = (taskId, boardId) => {
     return (dispatch) => {
  
-        Api.del(`${Const.URL}/tasks//my?task_id=${taskId}&board_id=${boardId}`)
+        Api.del(`${Const.URL}/tasks/?task_id=${taskId}&board_id=${boardId}`)
             .then(res => {
                 const {backLogTasks, doneTasks, todoTasks} = res.data;
 

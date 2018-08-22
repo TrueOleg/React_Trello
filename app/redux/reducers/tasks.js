@@ -8,7 +8,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
     const { type, tasks } = action;
-    console.log('tasks', tasks);
     switch (type) {
         
         case Const.SAVE_MY_BACKLOG_TASKS:

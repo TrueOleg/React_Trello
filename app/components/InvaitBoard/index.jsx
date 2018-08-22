@@ -50,7 +50,6 @@ class InvaitBoard extends React.Component {
     };
 
     onDragEnd = (result, index) => {
-        console.log('result', result);
         const { draggableId, source, destination} = result;
         
        

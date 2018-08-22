@@ -242,7 +242,7 @@ export const boardTasksLists = {
 
 export const tasksList = {
   width: '30%',
-  maxHeight: '99%',
+  maxHeight: '96%',
   textAlign: 'center',
   marginLeft: '1%',
   marginRight: '1%',

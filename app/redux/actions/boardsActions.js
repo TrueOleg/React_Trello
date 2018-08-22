@@ -26,7 +26,7 @@ export const saveSecret = (data) => {
 export const getBoards = () => {
     return (dispatch) => {
  
-        Api.get(`${Const.URL}/boards/my`)
+        Api.get(`${Const.URL}/boards/`)
             .then(res => {
               dispatch(saveMyBoards(res.data.boards));
                 

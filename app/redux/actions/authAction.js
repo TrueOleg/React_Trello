@@ -40,7 +40,6 @@ export const registrationUser = (data) => {
 
         Api.post(`${Const.URL}/singup`, data)
             .then(res => {
-                console.log('res', res);
                 dispatch(isLogin(res.data));
             })
             .catch((err) => console.log(err));

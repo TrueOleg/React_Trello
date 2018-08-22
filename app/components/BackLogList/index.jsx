@@ -103,9 +103,10 @@ class BackLogList extends React.Component {
                     <div style={styles.h2}>BackLog</div>
                     <div style={styles.scrollDiv}>
                     {tasks} 
-                    {form}
                     {provided.placeholder} 
+                    {form}
                     </div>  
+                    
                 </div>
                 )}
             </Droppable>
